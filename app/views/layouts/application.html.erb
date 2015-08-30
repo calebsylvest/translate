@@ -8,12 +8,22 @@
 </head>
 <body>
 
-<nav>
+<nav id="main-nav">
+  <div class="logo">Tranzlator</div>
   <%= link_to "All Posts", root_path %>
   <%= link_to "+ New Post", new_post_path %>
+
+  <p>Sign in</p>
 </nav>
 
-<%= yield %>
+<div id="main-content">
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert") %>
+  <% end %>
+
+  <%= yield %>  
+</div>
 
 </body>
 </html>
