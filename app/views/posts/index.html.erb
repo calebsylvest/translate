@@ -2,5 +2,8 @@
   <div class="post-wrapper">
     <h2 class="title"><%= link_to post.title, post %></h2>
     <p class="date"><%= post.created_at.strftime("%B, %d, %Y") %></p>
+    <p class="text"><%= post.text %></p>
+    <span class="language">Translate from <%= post.language %></span><br>
+    <span class="language">Translate to <%= post.translate_to %></span>
   </div>
 <% end %>
