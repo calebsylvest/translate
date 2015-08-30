@@ -2,9 +2,12 @@
   <%= @post.title %>
 </h1>
 
-<p class="date">
+<span class="date">
   Submitted <%= time_ago_in_words(@post.created_at) %> ago
-</p>
+</span> |
+
+<%= link_to "Edit", edit_post_path %> |
+<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 <p class="text">
   <%= @post.text %>
@@ -20,5 +23,10 @@
 
 <hr>
 
-<%= link_to "Edit", edit_post_path %>
-<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="translation-group">
+  <h2><%= @post.translations.count %> Translations</h2>
+  <%= render @post.translations %>
+
+  <h3>Add a translation:</h3>
+  <%= render 'translations/form' %>
+</div>

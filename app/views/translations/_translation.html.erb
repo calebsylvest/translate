@@ -1,0 +1,13 @@
+<div class="translation">
+  <p class="translation-text">
+    <%= translation.text %>
+  </p>
+  <p class="time">
+    <%= time_ago_in_words(translation.created_at) %> ago
+  </p>
+  <p><%= link_to 'Delete', [translation.post, translation],
+                  method: :delete,
+                  class: "button",
+                  data: { confirm: 'Are you sure?' } %>
+  </p>
+</div>
