@@ -11,9 +11,13 @@
 </p>
 
 <p class="language">
-  <%= @post.language %>
+  Translate from <%= @post.language %>
 </p>
 
 <p class="tranlate-to">
-  <%= @post.translate_to %>
+  Translate to <%= @post.translate_to %>
 </p>
+
+<hr>
+
+<%= link_to "Edit", edit_post_path %>
