@@ -7,6 +7,9 @@ class TranslationsController < ApplicationController
     redirect_to post_path(@post)
   end
 
+  def show
+  end
+
   def destroy
     @post = Post.find(params[:post_id])
     @translation = @post.translations.find(params[:id])
