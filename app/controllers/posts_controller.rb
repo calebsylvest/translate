@@ -19,9 +19,17 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+
+    if @post.update(params[:post].permit(:title, :text, :language, :translate_to, :status))
+      redirect_to @post
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -29,7 +37,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
+
+    redirect_to root_path
   end
 
   private
